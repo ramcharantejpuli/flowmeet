@@ -40,17 +40,31 @@ const FeatureCard = ({ icon, title, description, index }: FeatureCardProps) => {
     <div 
       ref={cardRef}
       className={cn(
-        "feature-card glass-card opacity-0 p-4 sm:p-6",
-        "lg:hover:bg-gradient-to-br lg:hover:from-white lg:hover:to-pulse-50",
-        "transition-all duration-300"
+        "feature-card glass-card opacity-0 p-6 sm:p-8 group cursor-pointer",
+        "bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-2xl shadow-lg",
+        "hover:shadow-2xl hover:shadow-black/10 hover:border-gray-300/50",
+        "hover:bg-gradient-to-br hover:from-white hover:to-gray-50/30",
+        "transform hover:scale-105 hover:-translate-y-2",
+        "transition-all duration-500 ease-out"
       )}
-      style={{ animationDelay: `${0.1 * index}s` }}
+      style={{ animationDelay: `${0.15 * index}s` }}
     >
-      <div className="rounded-full bg-pulse-50 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-pulse-500 mb-4 sm:mb-5">
-        {icon}
+      <div className="relative mb-6">
+        <div className="rounded-2xl bg-gradient-to-br from-gray-800 to-black w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center text-white mb-1 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg">
+          {icon}
+        </div>
+        <div className="absolute -top-1 -right-1 w-6 h-6 bg-gradient-to-br from-gray-600 to-black rounded-full opacity-0 group-hover:opacity-100 group-hover:animate-ping transition-all duration-300"></div>
       </div>
-      <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3">{title}</h3>
-      <p className="text-gray-600 text-sm sm:text-base">{description}</p>
+      <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-gray-800 group-hover:text-black transition-colors duration-300">{title}</h3>
+      <p className="text-gray-600 text-base sm:text-lg leading-relaxed group-hover:text-gray-700 transition-colors duration-300">{description}</p>
+      
+      {/* Animated border effect */}
+      <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-gray-600 via-gray-800 to-black opacity-0 group-hover:opacity-20 transition-opacity duration-300 -z-10 blur-xl"></div>
+      
+      {/* Shine effect */}
+      <div className="absolute inset-0 rounded-2xl overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"></div>
+      </div>
     </div>
   );
 };
@@ -88,55 +102,60 @@ const Features = () => {
   }, []);
   
   return (
-    <section className="py-12 sm:py-16 md:py-20 pb-0 relative bg-gray-50" id="features" ref={sectionRef}>
-      <div className="section-container">
-        <div className="text-center mb-10 sm:mb-16">
-          <div className="pulse-chip mx-auto mb-3 sm:mb-4 opacity-0 fade-in-element">
-            <span>Features</span>
+    <section className="py-4 sm:py-6 md:py-8 pb-0 relative overflow-hidden" id="features" ref={sectionRef}>
+      {/* Animated background elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50/30"></div>
+      <div className="absolute top-0 left-0 w-96 h-96 bg-gray-200/20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gray-300/15 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+      
+      <div className="section-container relative z-10">
+        <div className="text-center mb-12 sm:mb-20">
+          <div className="relative">
+            <h2 className="section-title mb-4 sm:mb-6 opacity-0 fade-in-element bg-gradient-to-r from-gray-800 via-black to-gray-800 bg-clip-text text-transparent animate-gradient-x">
+              Comprehensive Organization <br className="hidden sm:block" />Management Platform
+            </h2>
+            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-gray-600 to-black rounded-full opacity-0 fade-in-element" style={{ animationDelay: '0.3s' }}></div>
           </div>
-          <h2 className="section-title mb-3 sm:mb-4 opacity-0 fade-in-element">
-            Advanced Intelligence, <br className="hidden sm:block" />Human-Like Intuition
-          </h2>
-          <p className="section-subtitle mx-auto opacity-0 fade-in-element">
-            Built with cutting-edge technology to understand, learn, and adapt to your unique needs.
+          <p className="section-subtitle mx-auto opacity-0 fade-in-element text-gray-600 max-w-3xl leading-relaxed" style={{ animationDelay: '0.2s' }}>
+            Streamline your organization's workflow with integrated team collaboration, project management, and communication tools designed for modern workplaces.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
           <FeatureCard
-            icon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 1 1-4-4"></path><path d="M12 8a4 4 0 1 0 4 4"></path><circle cx="12" cy="12" r="1"></circle></svg>}
-            title="Adaptive Learning"
-            description="Atlas learns from your interactions, continuously improving its responses and actions to better serve your needs."
+            icon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>}
+            title="Team Collaboration"
+            description="Connect and collaborate with team members in real-time through integrated chat, file sharing, and project workspaces."
             index={0}
           />
           <FeatureCard
-            icon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path><polyline points="14 2 14 8 20 8"></polyline><path d="M9 13v-1h6v1"></path><path d="M11 18.5l-.5-1 1-.5.5 1.5-1 .5-.5-1 1-.5"></path><path d="M9.5 12 9 11H4"></path></svg>}
-            title="Natural Interaction"
-            description="Communicate using natural language and gestures. Atlas understands context and responds appropriately."
+            icon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M13 8H7"></path><path d="M17 12H7"></path></svg>}
+            title="Meeting Management"
+            description="Schedule, organize, and manage meetings with integrated calendar, video conferencing, and agenda management tools."
             index={1}
           />
           <FeatureCard
-            icon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><rect width="18" height="11" x="3" y="11" rx="2"></rect><circle cx="12" cy="5" r="2"></circle><path d="M12 7v4"></path><line x1="8" x2="8" y1="16" y2="16"></line><line x1="16" x2="16" y1="16" y2="16"></line></svg>}
-            title="Precise Movement"
-            description="Advanced motorized joints provide fluid, human-like movement with exceptional balance and coordination."
+            icon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M9 12l2 2 4-4"></path><path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"></path><path d="M11 12H3"></path></svg>}
+            title="Project Management"
+            description="Track project progress, assign tasks, set deadlines, and monitor team productivity with comprehensive project management tools."
             index={2}
           />
           <FeatureCard
-            icon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="7.5 4.21 12 6.81 16.5 4.21"></polyline><polyline points="7.5 19.79 7.5 14.6 3 12"></polyline><polyline points="21 12 16.5 14.6 16.5 19.79"></polyline><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" x2="12" y1="22.08" y2="12"></line></svg>}
-            title="Spatial Awareness"
-            description="Advanced sensors and mapping technology allow Atlas to navigate complex environments with ease."
+            icon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>}
+            title="HR Appointments"
+            description="Schedule appointments with HR, CEO, and leadership team with automated calendar integration and reminder notifications."
             index={3}
           />
           <FeatureCard
-            icon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path><path d="m14.5 9-5 5"></path><path d="m9.5 9 5 5"></path></svg>}
-            title="Enhanced Security"
-            description="Built-in protocols protect your data and privacy, while physical safeguards ensure safe operation."
+            icon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M13 8H7"></path><path d="M17 12H7"></path></svg>}
+            title="Team Chat & Communication"
+            description="Integrated chat system for seamless team communication with channels, direct messaging, and file sharing capabilities."
             index={4}
           />
           <FeatureCard
-            icon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M16 6H3v11a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1h-2"></path><path d="M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"></path><line x1="12" x2="12" y1="11" y2="15"></line><line x1="10" x2="14" y1="13" y2="13"></line></svg>}
-            title="Task Assistance"
-            description="From simple reminders to complex multi-step tasks, Atlas can assist with a wide range of activities."
+            icon={<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path><path d="M9 12l2 2 4-4"></path></svg>}
+            title="Secure & Compliant"
+            description="Enterprise-grade security with role-based access control, data encryption, and compliance with industry standards."
             index={5}
           />
         </div>

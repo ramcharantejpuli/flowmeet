@@ -2,13 +2,14 @@
 import React, { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import CompanyLogos from "@/components/CompanyLogos";
 import HumanoidSection from "@/components/HumanoidSection";
 import SpecsSection from "@/components/SpecsSection";
 import DetailsSection from "@/components/DetailsSection";
+import SeeItYourselfSection from "@/components/SeeItYourselfSection";
 import ImageShowcaseSection from "@/components/ImageShowcaseSection";
 import Features from "@/components/Features";
 import Testimonials from "@/components/Testimonials";
-import Newsletter from "@/components/Newsletter";
 import MadeByHumans from "@/components/MadeByHumans";
 import Footer from "@/components/Footer";
 
@@ -59,18 +60,16 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen mb-0">
       <Navbar />
       <main className="space-y-4 sm:space-y-8"> {/* Reduced space on mobile */}
         <Hero />
-        <HumanoidSection />
-        <SpecsSection />
+        <CompanyLogos />
         <DetailsSection />
         <ImageShowcaseSection />
         <Features />
         <Testimonials />
-        <Newsletter />
-        <MadeByHumans />
+        <HumanoidSection />
       </main>
       <Footer />
     </div>

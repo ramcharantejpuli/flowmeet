@@ -47,34 +47,57 @@ const Navbar = () => {
       <div className="container flex items-center justify-between px-4 sm:px-6 lg:px-8">
         <a 
           href="#" 
-          className="flex items-center space-x-2"
+          className="flex items-center space-x-3"
           onClick={(e) => {
             e.preventDefault();
             scrollToTop();
           }}
-          aria-label="Pulse Robot"
+          aria-label="FlowMeet"
         >
           <img 
-            src="/logo.svg" 
-            alt="Pulse Robot Logo" 
-            className="h-7 sm:h-8" 
+            src="/flowmeet-logo.png" 
+            alt="FlowMeet Logo" 
+            className="h-8 w-8 sm:h-10 sm:w-10" 
           />
+          <span className="text-xl sm:text-2xl font-bold text-gray-900">FLOWMEET</span>
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
-          <a 
-            href="#" 
-            className="nav-link"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToTop();
-            }}
-          >
-            Home
-          </a>
+        <nav className="hidden md:flex items-center space-x-8">
+          <a href="#hero" className="nav-link">Home</a>
+          <a href="#use-cases" className="nav-link">Features</a>
           <a href="#features" className="nav-link">About</a>
-          <a href="#details" className="nav-link">Contact</a>
+          <a href="#testimonials" className="nav-link">Reviews</a>
+          <a href="#footer" className="nav-link">Contact</a>
+          
+          {/* Action Buttons */}
+          <div className="flex items-center space-x-3 ml-4">
+            <a 
+              href="/signup" 
+              className="flex items-center justify-center px-4 py-2 text-sm font-medium transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,0,0,0.4)]" 
+              style={{
+                backgroundColor: '#000000',
+                borderRadius: '1440px',
+                color: '#FFFFFF',
+                border: '1px solid white',
+              }}
+            >
+              SignUp
+            </a>
+            
+            <a 
+              href="/login" 
+              className="flex items-center justify-center px-4 py-2 text-sm font-medium transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,0,0,0.4)] hover:bg-gray-800" 
+              style={{
+                backgroundColor: '#000000',
+                borderRadius: '1440px',
+                color: '#FFFFFF',
+                border: '2px solid #000000',
+              }}
+            >
+              Login
+            </a>
+          </div>
         </nav>
 
         {/* Mobile menu button - increased touch target */}
@@ -94,16 +117,14 @@ const Navbar = () => {
       )}>
         <nav className="flex flex-col space-y-8 items-center mt-8">
           <a 
-            href="#" 
+            href="#use-cases" 
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToTop();
+            onClick={() => {
               setIsMenuOpen(false);
               document.body.style.overflow = '';
             }}
           >
-            Home
+            Features
           </a>
           <a 
             href="#features" 
@@ -116,7 +137,17 @@ const Navbar = () => {
             About
           </a>
           <a 
-            href="#details" 
+            href="#testimonials" 
+            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
+            onClick={() => {
+              setIsMenuOpen(false);
+              document.body.style.overflow = '';
+            }}
+          >
+            Reviews
+          </a>
+          <a 
+            href="#footer" 
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
             onClick={() => {
               setIsMenuOpen(false);
@@ -125,6 +156,43 @@ const Navbar = () => {
           >
             Contact
           </a>
+          
+          {/* Mobile Action Buttons */}
+          <div className="flex flex-col space-y-4 w-full mt-6">
+            <a 
+              href="/signup" 
+              className="flex items-center justify-center py-3 px-6 text-lg font-medium transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,0,0,0.4)]" 
+              style={{
+                backgroundColor: '#000000',
+                borderRadius: '1440px',
+                color: '#FFFFFF',
+                border: '1px solid white',
+              }}
+              onClick={() => {
+                setIsMenuOpen(false);
+                document.body.style.overflow = '';
+              }}
+            >
+              SignUp
+            </a>
+            
+            <a 
+              href="/login" 
+              className="flex items-center justify-center py-3 px-6 text-lg font-medium transition-all duration-300 hover:shadow-[0_0_15px_rgba(0,0,0,0.4)] hover:bg-gray-800" 
+              style={{
+                backgroundColor: '#000000',
+                borderRadius: '1440px',
+                color: '#FFFFFF',
+                border: '2px solid #000000',
+              }}
+              onClick={() => {
+                setIsMenuOpen(false);
+                document.body.style.overflow = '';
+              }}
+            >
+              Login
+            </a>
+          </div>
         </nav>
       </div>
     </header>

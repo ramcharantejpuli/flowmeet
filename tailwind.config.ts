@@ -63,19 +63,19 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom colors for Pulse Robot - Neon Theme
+				// Custom colors for Pulse Robot - Black Theme
 				pulse: {
-					"50": "#ecfeff",
-					"100": "#cffafe",
-					"200": "#a5f3fc",
-					"300": "#67e8f9",
-					"400": "#22d3ee",
-					"500": "#00bcd4", // Primary neon cyan
-					"600": "#0891b2",
-					"700": "#0e7490",
-					"800": "#155e75",
-					"900": "#164e63",
-					"950": "#083344",
+					"50": "#f8f8f8",
+					"100": "#f0f0f0",
+					"200": "#e0e0e0",
+					"300": "#c0c0c0",
+					"400": "#808080",
+					"500": "#000000", // Primary black
+					"600": "#1a1a1a",
+					"700": "#333333",
+					"800": "#4d4d4d",
+					"900": "#666666",
+					"950": "#808080",
 				},
 				dark: {
 					"900": "#121212", // Almost black

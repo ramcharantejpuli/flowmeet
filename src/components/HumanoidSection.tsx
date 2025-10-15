@@ -42,7 +42,7 @@ const HumanoidSection = () => {
           
           const sectionRect = sectionRef.current.getBoundingClientRect();
           const viewportHeight = window.innerHeight;
-          const totalScrollDistance = viewportHeight * 2;
+          const totalScrollDistance = viewportHeight * 2; // Back to 3 cards
           
           // Calculate the scroll progress
           let progress = 0;
@@ -88,20 +88,12 @@ const HumanoidSection = () => {
       className="relative" 
       style={{ height: '300vh' }}
     >
-      <section className="w-full h-screen py-10 md:py-16 sticky top-0 overflow-hidden bg-white" id="why-humanoid">
+      <section className="w-full h-screen py-4 md:py-8 sticky top-0 overflow-hidden bg-white" id="why-humanoid">
         <div className="container px-6 lg:px-8 mx-auto h-full flex flex-col">
-          <div className="mb-2 md:mb-3">
-            <div className="flex items-center gap-4 mb-2 md:mb-2 pt-8 sm:pt-6 md:pt-4">
-              <div className="pulse-chip opacity-0 animate-fade-in" style={{
-                animationDelay: "0.1s"
-              }}>
-                <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">02</span>
-                <span>Humanoid</span>
-              </div>
-            </div>
+          <div className="mb-2 md:mb-3 text-center">
             
             <h2 className="section-title text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-1 md:mb-2">
-              Why Humanoid
+              Why FlowMeet
             </h2>
           </div>
           
@@ -127,16 +119,19 @@ const HumanoidSection = () => {
               ></div>
               
               <div className="absolute top-4 right-4 z-20">
-                <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
-                  <span className="text-sm font-medium">The vision</span>
+                <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-green-500 text-white">
+                  <span className="text-sm font-medium">TEAM COLLABORATION</span>
                 </div>
               </div>
               
               <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                 <div className="max-w-lg">
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
-                    We're giving AI a way to navigate the physical world
+                    Real-Time Team Sync
                   </h3>
+                  <p className="text-gray-300 text-base md:text-lg">
+                    Connect your team instantly with integrated chat, file sharing, and collaborative workspaces that keep everyone aligned.
+                  </p>
                 </div>
               </div>
             </div>
@@ -163,16 +158,19 @@ const HumanoidSection = () => {
               ></div>
               
               <div className="absolute top-4 right-4 z-20">
-                <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
-                  <span className="text-sm font-medium">The vision</span>
+                <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-green-500 text-white">
+                  <span className="text-sm font-medium">PROJECT MANAGEMENT</span>
                 </div>
               </div>
               
               <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                 <div className="max-w-lg">
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
-                    We're bringing adaptive intelligence to where humans work
+                    Smart Task Tracking
                   </h3>
+                  <p className="text-gray-300 text-base md:text-lg">
+                    Organize projects, assign tasks, set deadlines, and monitor progress with comprehensive project management tools designed for teams.
+                  </p>
                 </div>
               </div>
             </div>
@@ -199,19 +197,23 @@ const HumanoidSection = () => {
               ></div>
               
               <div className="absolute top-4 right-4 z-20">
-                <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white">
-                  <span className="text-sm font-medium">The vision</span>
+                <div className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-green-500 text-white">
+                  <span className="text-sm font-medium">MEETING MANAGEMENT</span>
                 </div>
               </div>
               
               <div className="relative z-10 p-5 sm:p-6 md:p-8 h-full flex items-center">
                 <div className="max-w-lg">
                   <h3 className="text-2xl sm:text-3xl md:text-4xl font-display text-white font-bold leading-tight mb-4">
-                    We're creating companions, <span className="text-[#FC4D0A]">not replacements</span>
+                    Seamless Scheduling
                   </h3>
+                  <p className="text-gray-300 text-base md:text-lg">
+                    Schedule meetings, book appointments with HR and leadership, manage calendars, and integrate with all major meeting platforms.
+                  </p>
                 </div>
               </div>
             </div>
+            
           </div>
         </div>
       </section>
